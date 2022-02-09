@@ -8,13 +8,14 @@ import AddItem from "../AddItem/AddItem";
 
 const App = () => {
 
-        const [stateVisibleText, setStateVisibleText] = useState([]);
+        const [basic, setBasic] = useState(list);
+        const [stateVisibleText, setStateVisibleText] = useState(basic);
 
 
         useEffect(() => {
             filterVisible('description');
 
-        }, []);
+        }, [basic]);
 
 
         const sortArray = (a, b) => {
@@ -33,8 +34,7 @@ const App = () => {
         const filterVisible = (keyObject) => {
 
             const textForFindIndex = 'Итоговые значения';
-
-            const mapBeforeFilter = list.map(obj => {
+            const mapBeforeFilter = basic.map(obj => {
                     let data = {entryPointDocument: obj.entryPointDocument};
                     if (obj[keyObject]) {
                         data = {...data, ['visibleText']: obj[keyObject]};
@@ -42,7 +42,8 @@ const App = () => {
 
                     return data;
                 }
-            );
+            )
+
 
             const visibleArray = mapBeforeFilter.filter(item => item.visibleText);
 
@@ -50,14 +51,14 @@ const App = () => {
 
             const findTextForFindIndex = sortData.find(item => item.visibleText === textForFindIndex);
 
-
+            console.log(findTextForFindIndex)
             if (findTextForFindIndex) {
 
                 const findIndexObj = sortData.findIndex(item => item.visibleText === textForFindIndex);
                 const ObjAfterFind = sortData[findIndexObj];
 
-                const finalData = [...sortData.slice(0, findIndexObj), ObjAfterFind, ...sortData.slice(findIndexObj + 1)];
-
+                const finalData = [ObjAfterFind, ...sortData.slice(0, findIndexObj), ...sortData.slice(findIndexObj + 1)];
+                console.log(finalData);
                 setStateVisibleText(finalData);
             } else {
 
@@ -73,16 +74,14 @@ const App = () => {
 
         const addNewItem = (text) => {
             return {
-                visibleText: text,
+                description: text,
                 entryPointDocument: getRandomArbitrary(10, 100),
             };
         };
 
         const addNewItemInState = (text) => {
-            setStateVisibleText((stateVisibleText) => {
-                const newItem = addNewItem(text);
-                return [...stateVisibleText, newItem]
-            });
+            const newItem = addNewItem(text);
+            setBasic([...basic, newItem]);
 
         };
 

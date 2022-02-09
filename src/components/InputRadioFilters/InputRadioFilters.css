@@ -1,0 +1,6 @@
+.input-radio-filters {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto 0;
+    width: 100%;
+}

@@ -1,0 +1,16 @@
+.table-filter__item {
+    max-width: 180px;
+    text-align: center;
+    border: solid 1px;
+    padding: 10px;
+}
+
+.table-filter__item:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.5s;
+}
+
+.table-filter__item_active {
+    background-color: cornflowerblue;
+}

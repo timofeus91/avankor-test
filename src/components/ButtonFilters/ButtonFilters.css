@@ -1,0 +1,40 @@
+.button-filters {
+    margin: 40px auto 0;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.button-filters__title {
+    text-align: center;
+    margin: 0;
+    padding: 0;font-size: 20px;
+    font-weight: 500;
+}
+
+.button-filters__container {
+    display: flex;
+    justify-content: center;
+    margin: 15px auto 0;
+}
+
+.button-filters__button {
+    margin: 0;
+    padding: 10px;
+    border: inset;
+    border-radius: 10px;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.button-filters__button:hover {
+    opacity: 0.8;
+    transition: opacity 0.5s;
+}
+
+.button-filters__button:first-child {
+    margin-right: 15px;
+}

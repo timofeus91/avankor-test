@@ -4,7 +4,7 @@ import InputRadioFiltersItem from "../InpurtRadioFiltersItem/InputRadioFiltersIt
 
 const InputRadioFilters = ({list, filter, handleActive}) => {
     return (
-        <div className="input-radio-filters">
+        <form className="input-radio-filters">
             {list.map(item =>
                 <InputRadioFiltersItem
                     key={item.id}
@@ -16,7 +16,8 @@ const InputRadioFilters = ({list, filter, handleActive}) => {
                         handleActive(item.valueItem)
                     }/>
             )}
-        </div>
+        </form>
+
     );
 };
 

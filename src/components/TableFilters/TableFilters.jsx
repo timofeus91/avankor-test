@@ -8,10 +8,11 @@ const TableFilters = ({list, filter, handleActive}) => {
     return (
         <table className="table-filters">
             <caption>All element table</caption>
+            <tbody>
             <tr className="table-filters__list">
                 {list.map(item =>
                     <TableFiltersItem
-                        key = {item.id}
+                        key={item.id}
                         name={item.name}
                         filter={filter}
                         handleActive={() => {
@@ -20,6 +21,7 @@ const TableFilters = ({list, filter, handleActive}) => {
                         valueItem={item.valueItem}/>
                 )}
             </tr>
+            </tbody>
         </table>
     );
 };
